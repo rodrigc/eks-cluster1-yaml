@@ -14,9 +14,8 @@ spec:
     targetRevision: main
     path: infrastructure/argo-cd
   syncPolicy:
-    syncPolicy:
-      syncOptions:
-        - CreateNamespace=true
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
