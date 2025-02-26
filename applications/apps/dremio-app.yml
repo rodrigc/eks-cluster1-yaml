@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dremio
+  namespace: argocd
+spec:
+  destination:
+    namespace: dremio
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: "https://github.com/rodrigc/eks-cluster1-yaml.git"
+    targetRevision: main
+    path: applications/dremio
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
