@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  # Add this to allow argocd to use kustomize to parse helmCharts field in kustomization.yml
+  kustomize.buildOptions: --enable-helm
